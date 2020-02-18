@@ -1,11 +1,27 @@
 .clr-accordion-reverse-title {
-    max-width: 320px;
+  max-width: 320px;
+  .progress-pinned-to-top-in-accordion-title {
+    left: -12px;
+  }
 }
 
 .accordion-content-with-button {
-    display: flex;
-    flex: 0 0 100%;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex: 0 0 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-pinned-to-top-in-accordion-title {
+  height: 2px;
+  min-height: 2px;
+  width: calc(100% + 42px);
+  position: relative;
+  top: -6px;
+  left: -31px;
+  
+  progress {
+    background-color: transparent;
+  }
 }

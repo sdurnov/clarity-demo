@@ -12,8 +12,7 @@ export class AccordionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showAlert(event:Event) {
-    alert('Clicked!')
+  preventClickBubbling(event:Event) {
     event.stopPropagation();
   }
 

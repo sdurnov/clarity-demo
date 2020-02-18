@@ -120,7 +120,7 @@
     <clr-accordion-panel>
         <clr-accordion-title>
             <div class="accordion-content-with-button">Item 1 <button class="btn btn-primary"
-                    (click)="showAlert($event)">Primary</button></div>
+                    (click)="preventClickBubbling($event)">Primary</button></div>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 1</clr-accordion-content>
     </clr-accordion-panel>
@@ -128,7 +128,7 @@
     <clr-accordion-panel>
         <clr-accordion-title>
             <div class="accordion-content-with-button">Item 2 <button class="btn btn-secondary btn-sm"
-                    (click)="showAlert($event)">Primary</button></div>
+                    (click)="preventClickBubbling($event)">Primary</button></div>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 2</clr-accordion-content>
     </clr-accordion-panel>
@@ -136,38 +136,58 @@
     <clr-accordion-panel>
         <clr-accordion-title>
             <div class="accordion-content-with-button">Item 3 <button class="btn btn-link btn-icon btn-danger"
-                    (click)="showAlert($event)">
+                    (click)="preventClickBubbling($event)">
                     <clr-icon shape="trash"></clr-icon>
                 </button></div>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
     </clr-accordion-panel>
+</clr-accordion>
+<h3>Title with Dropdown</h3>
+<br>
+<clr-accordion class="clr-accordion-reverse-title">
     <clr-accordion-panel>
         <clr-accordion-title>
-            <div class="accordion-content-with-button">Item 3 <span class="badge badge-purple">15</span></div>
+            <div>
+                <clr-dropdown>
+                    <button clrDropdownTrigger aria-label="Dropdown demo button" (click)="preventClickBubbling($event)">
+                        <clr-icon shape="ellipsis-vertical" size="12"></clr-icon>
+                    </button>
+                    <clr-dropdown-menu *clrIfOpen clrPosition="top-left">
+                        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
+                        <div aria-label="Dropdown header Action 1" clrDropdownItem (click)="preventClickBubbling($event)">Action 1</div>
+                        <div aria-label="Dropdown header Action 2" clrDropdownItem (click)="preventClickBubbling($event)">Action 2</div>
+                        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+                        <div clrDropdownItem (click)="preventClickBubbling($event)">Link 1</div>
+                        <div clrDropdownItem (click)="preventClickBubbling($event)">Link 2</div>
+                    </clr-dropdown-menu>
+                </clr-dropdown>Item 1
+            </div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
+<h3>Title with progress</h3>
+<br>
+<clr-accordion>
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="40" clrMax="100"></clr-progress-bar>
+                Servers (health check is running) <span class="badge badge-info">15</span>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
     </clr-accordion-panel>
     <clr-accordion-panel>
         <clr-accordion-title>
-            <div class="progress top">
-                <progress value="60" max="100"></progress>
-            </div>
-            <div>
-                <clr-dropdown>
-                    <button clrDropdownTrigger aria-label="Dropdown demo button" (click)="showAlert($event)">
-                        <clr-icon shape="ellipsis-vertical" size="12"></clr-icon>
-                    </button>
-                    <clr-dropdown-menu *clrIfOpen clrPosition="top-left">
-                        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
-                        <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
-                        <div aria-label="Dropdown header Action 2" clrDropdownItem>Action 2</div>
-                        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
-                        <div clrDropdownItem>Link 1</div>
-                        <div clrDropdownItem>Link 2</div>
-                    </clr-dropdown-menu>
-                </clr-dropdown>Item 3 <span class="badge badge-purple">15</span>
-            </div>
+            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="15" clrMax="100"></clr-progress-bar>
+                Storage devices (checked for viruses) <span class="badge badge-success">15</span>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="60" clrMax="100" clrDanger clrLoop></clr-progress-bar>
+                Backup tasks (failed for few locations) <span class="badge badge-danger">15</span>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
     </clr-accordion-panel>
