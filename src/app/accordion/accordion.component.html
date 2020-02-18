@@ -1,0 +1,174 @@
+<h1>Accordion</h1>
+<h3>Default appearance</h3>
+<br>
+<clr-accordion [clrAccordionMultiPanel]=true>
+    <clr-accordion-panel>
+        <clr-accordion-title>Item 1</clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 1</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>Item 2</clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 2</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>Item 3</clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
+
+<pre _ngcontent-clarity-c212=""
+    class="language-html ng-star-inserted"><code _ngcontent-clarity-c212="" class="  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-panel</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-title</span><span class="token punctuation">&gt;</span></span>Item 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-content</span> <span class="token attr-name">*clrIfExpanded</span><span class="token punctuation">&gt;</span></span>Content 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-content</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-panel</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-panel</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-title</span><span class="token punctuation">&gt;</span></span>Item 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-content</span> <span class="token attr-name">*clrIfExpanded</span><span class="token punctuation">&gt;</span></span>Content 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-content</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-panel</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-panel</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-title</span><span class="token punctuation">&gt;</span></span>Item 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>clr-accordion-content</span> <span class="token attr-name">*clrIfExpanded</span><span class="token punctuation">&gt;</span></span>Content 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-content</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion-panel</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>clr-accordion</span><span class="token punctuation">&gt;</span></span></code></pre>
+<h3>Icons in title</h3>
+<br>
+<clr-accordion>
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <clr-icon shape="floppy"></clr-icon> Item 1
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 1</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <clr-icon shape="floppy"></clr-icon> Item 2
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 2</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <clr-icon shape="floppy"></clr-icon> Item 3
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
+<h3>Grid in title</h3>
+<br>
+<clr-accordion>
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <div class="clr-row clr-no-gutters">
+                <div class="clr-col-4">
+                    <clr-icon shape="floppy"></clr-icon> This item takes 4 cols
+                </div>
+                <div class="clr-col-3">This item takes 3 cols</div>
+                <div class="clr-col-5">This item takes 5 cols</div>
+            </div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 1</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <clr-icon shape="floppy"></clr-icon> Item 2
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 2</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <clr-icon shape="floppy"></clr-icon> Item 3
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
+<h3>Title with reverse direction</h3>
+<br>
+<clr-accordion class="clr-accordion-reverse-title">
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            Item 1
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 1</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            Item 2
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 2</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            Item 3
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
+
+<h3>Title with button</h3>
+<br>
+<clr-accordion class="clr-accordion-reverse-title">
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <div class="accordion-content-with-button">Item 1 <button class="btn btn-primary"
+                    (click)="showAlert($event)">Primary</button></div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 1</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <div class="accordion-content-with-button">Item 2 <button class="btn btn-secondary btn-sm"
+                    (click)="showAlert($event)">Primary</button></div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 2</clr-accordion-content>
+    </clr-accordion-panel>
+
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <div class="accordion-content-with-button">Item 3 <button class="btn btn-link btn-icon btn-danger"
+                    (click)="showAlert($event)">
+                    <clr-icon shape="trash"></clr-icon>
+                </button></div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <div class="accordion-content-with-button">Item 3 <span class="badge badge-purple">15</span></div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <div class="progress top">
+                <progress value="60" max="100"></progress>
+            </div>
+            <div>
+                <clr-dropdown>
+                    <button clrDropdownTrigger aria-label="Dropdown demo button" (click)="showAlert($event)">
+                        <clr-icon shape="ellipsis-vertical" size="12"></clr-icon>
+                    </button>
+                    <clr-dropdown-menu *clrIfOpen clrPosition="top-left">
+                        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
+                        <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+                        <div aria-label="Dropdown header Action 2" clrDropdownItem>Action 2</div>
+                        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+                        <div clrDropdownItem>Link 1</div>
+                        <div clrDropdownItem>Link 2</div>
+                    </clr-dropdown-menu>
+                </clr-dropdown>Item 3 <span class="badge badge-purple">15</span>
+            </div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
