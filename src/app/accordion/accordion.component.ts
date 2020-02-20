@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionComponent implements OnInit {
 
+  name: string;
+
+  options = {
+    1: '',
+    2: '',
+    3: '',
+  };
+
   constructor() { }
 
   ngOnInit(): void {

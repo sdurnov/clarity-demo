@@ -20,8 +20,27 @@
   position: relative;
   top: -6px;
   left: -31px;
+  justify-content: space-between;
   
   progress {
     background-color: transparent;
+  }
+}
+
+.title-with-progress {
+  display: flex;
+  flex: 0 0 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clr-toggle-wrapper {
+  margin-right: 0;
+
+  label {
+    padding: 0;
+    max-width: 0 !important;
+    margin-left: 100px;
   }
 }

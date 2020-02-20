@@ -1,3 +1,5 @@
+@import './assets/styles/syntax-highlighting';
+
 h1 {
     margin-top: -.3rem;
 }
@@ -17,10 +19,17 @@ h3 {
 clr-accordion {
     &.clr-accordion-reverse-title button.clr-accordion-header-button {
     flex-direction: row-reverse !important;
-    align-items: center;
     }
 
     clr-accordion-title {
         width: 100%;
     }
+
+    button.clr-accordion-header-button {
+        align-items: center;
+    }
+}
+
+form.no-top-margin .clr-form-control{
+    margin-top: 0;
 }

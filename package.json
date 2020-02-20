@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -c production",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -24,6 +24,7 @@
     "@clr/icons": "3.0.0-next.8",
     "@clr/ui": "3.0.0-next.8",
     "@webcomponents/custom-elements": "^1.0.0",
+    "prismjs": "^1.19.0",
     "ramda": "^0.27.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

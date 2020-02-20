@@ -153,11 +153,15 @@
                     <button clrDropdownTrigger aria-label="Dropdown demo button" (click)="preventClickBubbling($event)">
                         <clr-icon shape="ellipsis-vertical" size="12"></clr-icon>
                     </button>
-                    <clr-dropdown-menu *clrIfOpen clrPosition="top-left">
-                        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
-                        <div aria-label="Dropdown header Action 1" clrDropdownItem (click)="preventClickBubbling($event)">Action 1</div>
-                        <div aria-label="Dropdown header Action 2" clrDropdownItem (click)="preventClickBubbling($event)">Action 2</div>
-                        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+                    <clr-dropdown-menu *clrIfOpen clrPosition="top-left" (click)="preventClickBubbling($event)">
+                        <label class="dropdown-header" aria-hidden="true"
+                            (click)="preventClickBubbling($event)">Dropdown header</label>
+                        <div aria-label="Dropdown header Action 1" clrDropdownItem
+                            (click)="preventClickBubbling($event)">Action 1</div>
+                        <div aria-label="Dropdown header Action 2" clrDropdownItem
+                            (click)="preventClickBubbling($event)">Action 2</div>
+                        <div class="dropdown-divider" role="separator" aria-hidden="true"
+                            (click)="preventClickBubbling($event)"></div>
                         <div clrDropdownItem (click)="preventClickBubbling($event)">Link 1</div>
                         <div clrDropdownItem (click)="preventClickBubbling($event)">Link 2</div>
                     </clr-dropdown-menu>
@@ -172,22 +176,82 @@
 <clr-accordion>
     <clr-accordion-panel>
         <clr-accordion-title>
-            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="40" clrMax="100"></clr-progress-bar>
-                Servers (health check is running) <span class="badge badge-info">15</span>
+            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="40" clrMax="100">
+            </clr-progress-bar>
+            <div class="title-with-progress">
+                Servers (health check is running) <div><span class="badge badge-info">15</span>
+                    <clr-signpost (click)="preventClickBubbling($event)">
+                        <clr-signpost-content *clrIfOpen>
+                            <h3>Default Signpost</h3>
+                            <p>Position: <code class="clr-code">right-middle</code></p>
+                        </clr-signpost-content>
+                    </clr-signpost>
+                </div>
+            </div>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
     </clr-accordion-panel>
     <clr-accordion-panel>
         <clr-accordion-title>
-            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="15" clrMax="100"></clr-progress-bar>
-                Storage devices (checked for viruses) <span class="badge badge-success">15</span>
+            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="15" clrMax="100">
+            </clr-progress-bar>
+            <div class="title-with-progress">
+                Storage devices (checked for viruses) <div><span class="badge badge-success">15</span>
+                    <clr-signpost (click)="preventClickBubbling($event)">
+                        <clr-signpost-content *clrIfOpen>
+                            <h3>Default Signpost</h3>
+                            <p>Position: <code class="clr-code">right-middle</code></p>
+                        </clr-signpost-content>
+                    </clr-signpost>
+                </div>
+            </div>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
     </clr-accordion-panel>
     <clr-accordion-panel>
         <clr-accordion-title>
-            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="60" clrMax="100" clrDanger clrLoop></clr-progress-bar>
-                Backup tasks (failed for few locations) <span class="badge badge-danger">15</span>
+            <clr-progress-bar class="progress-pinned-to-top-in-accordion-title" clrValue="60" clrMax="100" clrDanger
+                clrLoop></clr-progress-bar>
+            <div class="title-with-progress">
+                Backup tasks (failed for few locations) <div><span class="badge badge-danger">15</span>
+                    <clr-signpost (click)="preventClickBubbling($event)">
+                        <clr-signpost-content *clrIfOpen>
+                            <h3>Default Signpost</h3>
+                            <p>Position: <code class="clr-code">right-middle</code></p>
+                        </clr-signpost-content>
+                    </clr-signpost>
+                </div>
+            </div>
+        </clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
+    </clr-accordion-panel>
+</clr-accordion>
+<h3>Title with inputs</h3>
+<br>
+<clr-accordion>
+    <clr-accordion-panel>
+        <clr-accordion-title>
+            <form clrForm clrLayout="horizontal" class="clr-row clr-no-gutters no-top-margin">
+                <div class="clr-col-1">Container</div>
+                <clr-input-container class="clr-col-4 clr-offset-1">
+                    <label class="clr-col-6">Container name</label>
+                    <input class="clr-col-6" clrInput placeholder="LXC container 1" name="name" [(ngModel)]="name"
+                        (click)="preventClickBubbling($event)" />
+                </clr-input-container>
+                <clr-select-container class="clr-col-4 clr-offset-1">
+                    <label class="clr-col-6">Container type</label>
+                    <select class="clr-col-6" clrSelect name="options" [(ngModel)]="options"
+                        (click)="preventClickBubbling($event)">
+                        <option value="1">LXC</option>
+                        <option value="2">Docker</option>
+                        <option value="3">Other</option>
+                    </select>
+                </clr-select-container>
+                <div class="clr-toggle-wrapper clr-col-1">
+                    <input type="checkbox" id="horizontal-checkbox1" name="checkbox-basic" class="clr-toggle" (click)="preventClickBubbling($event)">
+                    <label for="horizontal-checkbox1" class="clr-control-label" (click)="preventClickBubbling($event)"></label>
+                  </div>
+            </form>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>Content 3</clr-accordion-content>
     </clr-accordion-panel>
