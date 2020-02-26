@@ -7,11 +7,13 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionComponent } from './accordion/accordion.component';
 import { FormsModule } from '@angular/forms';
+import { AccordionDefaultComponent } from './accordion/accordion-default/accordion-default.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccordionComponent
+    AccordionComponent,
+    AccordionDefaultComponent
   ],
   imports: [
     BrowserModule,
