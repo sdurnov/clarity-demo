@@ -9,13 +9,15 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccordionDefaultComponent } from './accordion/accordion-default/accordion-default.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { ButtonComponent } from './buttons/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccordionComponent,
     AccordionDefaultComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -58,4 +58,8 @@ form.no-top-margin .clr-form-control{
             width: var(--clr-btn-appearance-standard-icon-size, 0.6rem);
         }
     }
+
+    &.btn-short {
+        padding: 0;
+    }
 }
