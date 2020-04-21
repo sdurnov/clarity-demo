@@ -8,11 +8,17 @@ h3 {
     margin-top: 2.4rem;
 }
 
+main.content-area {
+    display: flex;
+    justify-content: center;
+}
+
 .docs-wrapper {
     padding-left: 1.8rem;
+    padding-right: 1.8rem;
     padding-top: .3rem;
     padding-bottom: 4.8rem;
-    max-width: 45rem;
+    max-width: 60rem;
     width: 100%;
 }
 

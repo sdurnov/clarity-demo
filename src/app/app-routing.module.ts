@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'accordion', pathMatch: 'full'},
   {path: 'accordion', component: AccordionComponent},
   {path: 'buttons', component: ButtonsComponent, children: [
+    {path: '', redirectTo: 'button', pathMatch: 'full'},
     {path: 'button', component: ButtonComponent},
   ]}
 ];

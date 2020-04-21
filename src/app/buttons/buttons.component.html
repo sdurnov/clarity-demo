@@ -1,99 +1,25 @@
 <h1>Buttons</h1>
-<form clrForm clrLayout="horizontal" [formGroup]="buttonOptionsForm">
-    <clr-radio-container clrInline>
-        <label>Component</label>
-        <clr-radio-wrapper>
-            <input type="radio" clrRadio name="controlType" required value="Button" formControlName="controlType" />
-            <label>Button</label>
-        </clr-radio-wrapper>
-        <clr-radio-wrapper>
-            <input type="radio" clrRadio name="controlType" required value="ButtonGroup"
-                formControlName="controlType" />
-            <label>Button group</label>
-        </clr-radio-wrapper>
-        <clr-radio-wrapper>
-            <input type="radio" clrRadio name="controlType" required value="Dropdown" formControlName="controlType" />
-            <label>Dropdown</label>
-        </clr-radio-wrapper>
-    </clr-radio-container>
 
-    <clr-radio-container clrInline>
-        <label>Appearance</label>
-        <clr-radio-wrapper>
-            <input type="radio" clrRadio name="buttonType" required value="Solid" formControlName="buttonType" />
-            <label>Solid</label>
-        </clr-radio-wrapper>
-        <clr-radio-wrapper>
-            <input type="radio" clrRadio name="buttonType" required value="Outline" formControlName="buttonType" />
-            <label>Outline</label>
-        </clr-radio-wrapper>
-        <clr-radio-wrapper>
-            <input type="radio" clrRadio name="buttonType" required value="Flat" formControlName="buttonType" />
-            <label>Flat</label>
-        </clr-radio-wrapper>
-    </clr-radio-container>
-    <clr-toggle-container clrInline>
-        <label>Icon</label>
-        <clr-toggle-wrapper>
-            <input type="checkbox" clrToggle name="isLeftIconEnabled" formControlName="isLeftIconEnabled" />
-            <label>Left icon</label>
-        </clr-toggle-wrapper>
-        <clr-toggle-wrapper>
-            <input type="checkbox" clrToggle name="isRightIconEnabled" formControlName="isRightIconEnabled" />
-            <label>Right icon</label>
-        </clr-toggle-wrapper>
-    </clr-toggle-container>
-    <clr-toggle-container clrInline>
-        <label>Text</label>
-        <clr-toggle-wrapper>
-            <input type="checkbox" clrToggle name="isTextEnabled" formControlName="isTextEnabled" />
-            <label>Show text</label>
-        </clr-toggle-wrapper>
-    </clr-toggle-container>
-    <clr-toggle-container clrInline>
-        <label>Size</label>
-        <clr-toggle-wrapper>
-            <input type="checkbox" clrToggle name="isSmall" formControlName="isSmall" />
-            <label>Small</label>
-        </clr-toggle-wrapper>
-    </clr-toggle-container>
-</form>
-
-<br />
-<br />
-
-<button class="btn"
-    [ngClass]="{'btn-primary': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="cog" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'primary' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button class="btn"
-    [ngClass]="{'btn-success': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="check" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'success' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button class="btn"
-    [ngClass]="{'btn-warning': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="warning-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'warning' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button class="btn"
-    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'danger' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button disabled class="btn"
-    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'disabled' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<br />
-<br />
-<button class="btn btn-primary btn-link btn-short" [routerLink]="showDetails ? './' : 'button'" (click)="showDetails = !showDetails"><ng-container *ngIf="!showDetails">Show all at once</ng-container><ng-container *ngIf="showDetails">Hide</ng-container></button>
-
+<ul class="nav" role="tablist">
+    <li role="tab" class="nav-item">
+      <button class="btn btn-link nav-link active" aria-controls="panelDashboard" aria-selected="true" type="button">Dashboard</button>
+    </li>
+    <li role="tab" class="nav-item">
+      <button class="btn btn-link nav-link" aria-controls="panelManagement" aria-selected="false" type="button">Management</button>
+    </li>
+    <li role="tab" class="nav-item">
+      <button class="btn btn-link nav-link" aria-controls="panelCloud" aria-selected="false" type="button">Cloud</button>
+    </li>
+    <div class="tabs-overflow open bottom-right">
+      <li class="nav-item">
+        <button class="btn btn-link nav-link dropdown-toggle">
+          <clr-icon shape="ellipsis-horizontal" class="is-info" title="More"></clr-icon>
+        </button>
+      </li>
+      <div class="dropdown-menu">
+        <button class="btn" role="tab" aria-controls="panelInfrastructure">Infrastructure</button>
+        <button class="btn" role="tab" aria-controls="panelSettings">Settings</button>
+      </div>
+    </div>
+  </ul>
 <router-outlet></router-outlet>

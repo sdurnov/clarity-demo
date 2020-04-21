@@ -1,3 +1,83 @@
+<form clrForm clrLayout="horizontal" [formGroup]="buttonOptionsForm">
+    <clr-radio-container clrInline>
+        <label>Appearance</label>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonType" required value="Solid" formControlName="buttonType" />
+            <label>Solid</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonType" required value="Outline" formControlName="buttonType" />
+            <label>Outline</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonType" required value="Flat" formControlName="buttonType" />
+            <label>Flat</label>
+        </clr-radio-wrapper>
+    </clr-radio-container>
+    <clr-toggle-container clrInline>
+        <label>Icon</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isLeftIconEnabled" formControlName="isLeftIconEnabled" />
+            <label>Left icon</label>
+        </clr-toggle-wrapper>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isRightIconEnabled" formControlName="isRightIconEnabled" />
+            <label>Right icon</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>Text</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isTextEnabled" formControlName="isTextEnabled" />
+            <label>Show text</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>Size</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isSmall" formControlName="isSmall" />
+            <label>Small</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+</form>
+
+<br />
+<br />
+
+<button class="btn"
+    [ngClass]="{'btn-primary': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+    <clr-icon shape="cog" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+    {{buttonOptionsForm.value.isTextEnabled ? 'primary' : null}}
+    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
+</button>
+<button class="btn"
+    [ngClass]="{'btn-success': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+    <clr-icon shape="check" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+    {{buttonOptionsForm.value.isTextEnabled ? 'success' : null}}
+    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
+</button>
+<button class="btn"
+    [ngClass]="{'btn-warning': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+    <clr-icon shape="warning-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+    {{buttonOptionsForm.value.isTextEnabled ? 'warning' : null}}
+    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
+</button>
+<button class="btn"
+    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+    <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+    {{buttonOptionsForm.value.isTextEnabled ? 'danger' : null}}
+    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
+</button>
+<button disabled class="btn"
+    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+    <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+    {{buttonOptionsForm.value.isTextEnabled ? 'disabled' : null}}
+    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
+</button>
+<br />
+<br />
+
+
 <h3>Solid</h3>
 <br />
 <h5>Normal size</h5>
