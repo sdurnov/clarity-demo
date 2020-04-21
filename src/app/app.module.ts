@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccordionDefaultComponent } from './accordion/accordion-default/accordion-default.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { ButtonComponent } from './buttons/button/button.component';
+import { ButtonGroupComponent } from './buttons/button-group/button-group.component';
+import { DropdownComponent } from './buttons/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ButtonComponent } from './buttons/button/button.component';
     AccordionComponent,
     AccordionDefaultComponent,
     ButtonsComponent,
-    ButtonComponent
+    ButtonComponent,
+    ButtonGroupComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
