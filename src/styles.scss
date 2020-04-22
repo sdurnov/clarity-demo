@@ -9,7 +9,7 @@ h3 {
 }
 
 hr {
-    margin: 1.2rem 0;
+  margin: 1.2rem 0;
   height: 1px;
   border: none;
   background-color: var(--clr-color-neutral-400);
@@ -48,12 +48,18 @@ form.no-top-margin .clr-form-control {
   margin-top: 0;
 }
 
-.btn.btn-link {
+.btn.btn-link,
+.btn-group.btn-link,
+.btn-group.btn-link .btn {
   &.btn-success {
     color: var(--clr-btn-success-outline-color);
 
     &:disabled {
       color: var(--clr-btn-success-outline-disabled-color);
+    }
+
+    .btn {
+      color: var(--clr-btn-success-outline-color);
     }
   }
 
@@ -63,6 +69,10 @@ form.no-top-margin .clr-form-control {
 
     &:disabled {
       color: var(--clr-btn-danger-outline-disabled-color);
+    }
+
+    .btn {
+      color: var(--clr-btn-danger-outline-color);
     }
   }
 

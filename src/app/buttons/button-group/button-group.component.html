@@ -1,4 +1,22 @@
-<form clrForm clrLayout="horizontal" [formGroup]="buttonOptionsForm">
+<form clrForm clrLayout="horizontal" [formGroup]="buttonGroupOptionsForm">
+    <clr-radio-container clrInline>
+        <label>Group type</label>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonGroupType" required value="Button"
+                formControlName="buttonGroupType" />
+            <label>Button</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonGroupType" required value="Checkbox"
+                formControlName="buttonGroupType" />
+            <label>Checkbox</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonGroupType" required value="Radio"
+                formControlName="buttonGroupType" />
+            <label>Radio</label>
+        </clr-radio-wrapper>
+    </clr-radio-container>
     <clr-radio-container clrInline>
         <label>Appearance</label>
         <clr-radio-wrapper>
@@ -12,6 +30,25 @@
         <clr-radio-wrapper>
             <input type="radio" clrRadio name="buttonType" required value="Flat" formControlName="buttonType" />
             <label>Flat</label>
+        </clr-radio-wrapper>
+    </clr-radio-container>
+    <clr-radio-container clrInline>
+        <label>Color</label>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="color" required value="Primary" formControlName="color" />
+            <label>Primary</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="color" required value="Success" formControlName="color" />
+            <label>Success</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="color" required value="Warning" formControlName="color" />
+            <label>Warning</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="color" required value="Danger" formControlName="color" />
+            <label>Danger</label>
         </clr-radio-wrapper>
     </clr-radio-container>
     <clr-toggle-container clrInline>
@@ -33,47 +70,67 @@
         </clr-toggle-wrapper>
     </clr-toggle-container>
     <clr-toggle-container clrInline>
+        <label>Overflow</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isOverflowVisible" formControlName="isOverflowVisible" />
+            <label>Overflow visible</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+    <clr-toggle-container clrInline>
         <label>Size</label>
         <clr-toggle-wrapper>
             <input type="checkbox" clrToggle name="isSmall" formControlName="isSmall" />
             <label>Small</label>
         </clr-toggle-wrapper>
     </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>State</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isDisabled" formControlName="isDisabled" />
+            <label>Disabled</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
 </form>
-
 <br />
 <br />
 
-<button class="btn"
-    [ngClass]="{'btn-primary': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="cog" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'primary' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button class="btn"
-    [ngClass]="{'btn-success': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="check" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'success' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button class="btn"
-    [ngClass]="{'btn-warning': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="warning-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'warning' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button class="btn"
-    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'danger' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
-<button disabled class="btn"
-    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
-    <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
-    {{buttonOptionsForm.value.isTextEnabled ? 'disabled' : null}}
-    <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
-</button>
+<clr-button-group
+    [ngClass]="{'btn-primary': (buttonGroupOptionsForm.value.color === 'Primary' && buttonGroupOptionsForm.value.buttonType !== 'Outline'), 'btn-success': (buttonGroupOptionsForm.value.color === 'Success' && buttonGroupOptionsForm.value.buttonType !== 'Outline'), 'btn-success-outline': (buttonGroupOptionsForm.value.color === 'Success' && buttonGroupOptionsForm.value.buttonType === 'Outline'), 'btn-warning': (buttonGroupOptionsForm.value.color === 'Warning' && buttonGroupOptionsForm.value.buttonType !== 'Outline'), 'btn-warning-outline': (buttonGroupOptionsForm.value.color === 'Warning' && buttonGroupOptionsForm.value.buttonType === 'Outline'), 'btn-danger': (buttonGroupOptionsForm.value.color === 'Danger' && buttonGroupOptionsForm.value.buttonType !== 'Outline'), 'btn-danger-outline': (buttonGroupOptionsForm.value.color === 'Danger' && buttonGroupOptionsForm.value.buttonType === 'Outline'), 'btn-link': buttonGroupOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonGroupOptionsForm.value.isSmall, 'btn-icon': (buttonGroupOptionsForm.value.isLeftIconEnabled || buttonGroupOptionsForm.value.isRightIconEnabled)}"
+    *ngIf="buttonGroupOptionsForm.value.buttonGroupType === 'Button'">
+    <clr-button class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
+        <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{buttonGroupOptionsForm.value.isTextEnabled ? 'add' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
+        <clr-icon shape="check" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{buttonGroupOptionsForm.value.isTextEnabled ? 'edit' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
+        <clr-icon shape="warning-standard" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{buttonGroupOptionsForm.value.isTextEnabled ? 'download' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
+        <clr-icon shape="error-standard" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{buttonGroupOptionsForm.value.isTextEnabled ? 'delete' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+    </clr-button>
+    <ng-container *ngIf="buttonGroupOptionsForm.value.isOverflowVisible">
+        <clr-button [clrInMenu]="true" class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
+            <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'in dropdown' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </clr-button>
+        <clr-button [clrInMenu]="true" class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
+            <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'in dropdown' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </clr-button>
+    </ng-container>
+
+</clr-button-group>
 <hr>
 
 
@@ -81,394 +138,2545 @@
 <br />
 <h5>Normal size</h5>
 <h6>Regular</h6>
-<button class="btn btn-primary">Primary</button>
-<button class="btn btn-success">Success</button>
-<button class="btn btn-warning">Warning</button>
-<button class="btn btn-danger">Danger</button>
-<button class="btn btn-danger" disabled>Disabled</button>
+<clr-button-group class="btn-primary">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger">
+    <clr-button class="btn" disabled>Add</clr-button>
+    <clr-button class="btn" disabled>Edit</clr-button>
+    <clr-button class="btn" disabled>Download</clr-button>
+    <clr-button class="btn" disabled>Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group>
+    <clr-button class="btn btn-primary">Add</clr-button>
+    <clr-button class="btn btn-success">Edit</clr-button>
+    <clr-button class="btn btn-warning">Download</clr-button>
+    <clr-button class="btn btn-danger">Delete</clr-button>
+    <clr-button class="btn btn-danger" disabled>Disabled</clr-button>
+</clr-button-group>
 <h6>Icon + text</h6>
-<button class="btn btn-primary btn-icon">
-    <clr-icon shape="cog"></clr-icon>
-    Primary
-</button>
-<button class="btn btn-success btn-icon">
-    <clr-icon shape="check"></clr-icon>
-    Success
-</button>
-<button class="btn btn-warning btn-icon">
-    <clr-icon shape="warning-standard"></clr-icon>
-    Warning
-</button>
-<button class="btn btn-danger btn-icon">
-    <clr-icon shape="error-standard"></clr-icon>
-    Danger
-</button>
-<button class="btn btn-danger btn-icon" disabled>
-    <clr-icon shape="home"></clr-icon>
-    Disabled
-</button>
+<clr-button-group class="btn-primary">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group>
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Disabled
+    </clr-button>
+</clr-button-group>
 
 <h6>Text + icon (use only with arrows or angle)</h6>
-<button class="btn btn-primary btn-icon">
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-primary btn-icon" disabled>
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-primary btn-icon">
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
-<button class="btn btn-primary btn-icon" disabled>
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
+
+<clr-button-group class="btn-primary">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger">
+    <clr-button class="btn" disabled>
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group>
+    <clr-button class="btn btn-primary">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-success">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        Disabled
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
 
 <h6>Icon only</h6>
-<button class="btn btn-primary btn-icon">
-    <clr-icon shape="cog"></clr-icon>
-</button>
-<button class="btn btn-success btn-icon">
-    <clr-icon shape="check"></clr-icon>
-</button>
-<button class="btn btn-warning btn-icon">
-    <clr-icon shape="warning-standard"></clr-icon>
-</button>
-<button class="btn btn-danger btn-icon">
-    <clr-icon shape="error-standard"></clr-icon>
-</button>
-<button class="btn btn-danger btn-icon" disabled>
-    <clr-icon shape="home"></clr-icon>
-</button>
+<clr-button-group class="btn-primary btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
 
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-icon">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-icon">
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
 <br />
 <br />
 <h5>Small</h5>
 <h6>Regular</h6>
-<button class="btn btn-primary btn-sm">Primary</button>
-<button class="btn btn-success btn-sm">Success</button>
-<button class="btn btn-warning btn-sm">Warning</button>
-<button class="btn btn-danger btn-sm">Danger</button>
-<button class="btn btn-danger btn-sm" disabled>Disabled</button>
+<clr-button-group class="btn-primary btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-sm">
+    <clr-button class="btn" disabled>Add</clr-button>
+    <clr-button class="btn" disabled>Edit</clr-button>
+    <clr-button class="btn" disabled>Download</clr-button>
+    <clr-button class="btn" disabled>Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-sm">
+    <clr-button class="btn btn-primary">Add</clr-button>
+    <clr-button class="btn btn-success">Edit</clr-button>
+    <clr-button class="btn btn-warning">Download</clr-button>
+    <clr-button class="btn btn-danger">Delete</clr-button>
+    <clr-button class="btn btn-danger" disabled>Disabled</clr-button>
+</clr-button-group>
 <h6>Icon + text</h6>
-<button class="btn btn-primary btn-icon btn-sm">
-    <clr-icon shape="cog"></clr-icon>
-    Primary
-</button>
-<button class="btn btn-success btn-icon btn-sm">
-    <clr-icon shape="check"></clr-icon>
-    Success
-</button>
-<button class="btn btn-warning btn-icon btn-sm">
-    <clr-icon shape="warning-standard"></clr-icon>
-    Warning
-</button>
-<button class="btn btn-danger btn-icon btn-sm">
-    <clr-icon shape="error-standard"></clr-icon>
-    Danger
-</button>
-<button class="btn btn-danger btn-icon btn-sm" disabled>
-    <clr-icon shape="home"></clr-icon>
-    Disabled
-</button>
+<clr-button-group class="btn-primary btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-sm">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-sm">
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Disabled
+    </clr-button>
+</clr-button-group>
 
 <h6>Text + icon (use only with arrows or angle)</h6>
-<button class="btn btn-primary btn-icon btn-sm">
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-primary btn-icon btn-sm" disabled>
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-primary btn-icon btn-sm">
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
-<button class="btn btn-primary btn-icon btn-sm" disabled>
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
+
+<clr-button-group class="btn-primary btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-sm">
+    <clr-button class="btn" disabled>
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-sm">
+    <clr-button class="btn btn-primary">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-success">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        Disabled
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
 
 <h6>Icon only</h6>
-<button class="btn btn-primary btn-icon btn-sm">
-    <clr-icon shape="cog"></clr-icon>
-</button>
-<button class="btn btn-success btn-icon btn-sm">
-    <clr-icon shape="check"></clr-icon>
-</button>
-<button class="btn btn-warning btn-icon btn-sm">
-    <clr-icon shape="warning-standard"></clr-icon>
-</button>
-<button class="btn btn-danger btn-icon btn-sm">
-    <clr-icon shape="error-standard"></clr-icon>
-</button>
-<button class="btn btn-danger btn-icon btn-sm" disabled>
-    <clr-icon shape="home"></clr-icon>
-</button>
+<clr-button-group class="btn-primary btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger btn-icon btn-sm">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-icon btn-sm">
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
 
 <h3>Outline</h3>
 <br />
 <h5>Normal size</h5>
 <h6>Regular</h6>
-<button class="btn btn-outline">Primary</button>
-<button class="btn btn-success-outline">Success</button>
-<button class="btn btn-warning-outline">Warning</button>
-<button class="btn btn-danger-outline">Danger</button>
-<button class="btn btn-danger-outline" disabled>Disabled</button>
+<clr-button-group class=" ">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline">
+    <clr-button class="btn" disabled>Add</clr-button>
+    <clr-button class="btn" disabled>Edit</clr-button>
+    <clr-button class="btn" disabled>Download</clr-button>
+    <clr-button class="btn" disabled>Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group>
+    <clr-button class="btn ">Add</clr-button>
+    <clr-button class="btn btn-success-outline">Edit</clr-button>
+    <clr-button class="btn btn-warning-outline">Download</clr-button>
+    <clr-button class="btn btn-danger-outline">Delete</clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>Disabled</clr-button>
+</clr-button-group>
 <h6>Icon + text</h6>
-<button class="btn btn-outline btn-icon">
-    <clr-icon shape="cog"></clr-icon>
-    Primary
-</button>
-<button class="btn btn-success-outline btn-icon">
-    <clr-icon shape="check"></clr-icon>
-    Success
-</button>
-<button class="btn btn-warning-outline btn-icon">
-    <clr-icon shape="warning-standard"></clr-icon>
-    Warning
-</button>
-<button class="btn btn-danger-outline btn-icon">
-    <clr-icon shape="error-standard"></clr-icon>
-    Danger
-</button>
-<button class="btn btn-danger-outline btn-icon" disabled>
-    <clr-icon shape="home"></clr-icon>
-    Disabled
-</button>
+<clr-button-group class=" ">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group>
+    <clr-button class="btn ">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn btn-success-outline">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn btn-warning-outline">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn btn-danger-outline">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Disabled
+    </clr-button>
+</clr-button-group>
 
 <h6>Text + icon (use only with arrows or angle)</h6>
-<button class="btn btn-outline btn-icon">
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-outline btn-icon" disabled>
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-outline btn-icon">
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
-<button class="btn btn-outline btn-icon" disabled>
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
+
+<clr-button-group class=" ">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline">
+    <clr-button class="btn" disabled>
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group>
+    <clr-button class="btn ">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-success-outline">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-warning-outline">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger-outline">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>
+        Disabled
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
 
 <h6>Icon only</h6>
-<button class="btn btn-outline btn-icon">
-    <clr-icon shape="cog"></clr-icon>
-</button>
-<button class="btn btn-success-outline btn-icon">
-    <clr-icon shape="check"></clr-icon>
-</button>
-<button class="btn btn-warning-outline btn-icon">
-    <clr-icon shape="warning-standard"></clr-icon>
-</button>
-<button class="btn btn-danger-outline btn-icon">
-    <clr-icon shape="error-standard"></clr-icon>
-</button>
-<button class="btn btn-danger-outline btn-icon" disabled>
-    <clr-icon shape="home"></clr-icon>
-</button>
+<clr-button-group class="  btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
 
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-icon">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-icon">
+    <clr-button class="btn ">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-success-outline">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-warning-outline">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger-outline">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
 <br />
 <br />
 <h5>Small</h5>
 <h6>Regular</h6>
-<button class="btn btn-outline btn-sm">Primary</button>
-<button class="btn btn-success-outline btn-sm">Success</button>
-<button class="btn btn-warning-outline btn-sm">Warning</button>
-<button class="btn btn-danger-outline btn-sm">Danger</button>
-<button class="btn btn-danger-outline btn-sm" disabled>Disabled</button>
+<clr-button-group class="  btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-sm">
+    <clr-button class="btn" disabled>Add</clr-button>
+    <clr-button class="btn" disabled>Edit</clr-button>
+    <clr-button class="btn" disabled>Download</clr-button>
+    <clr-button class="btn" disabled>Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-sm">
+    <clr-button class="btn ">Add</clr-button>
+    <clr-button class="btn btn-success-outline">Edit</clr-button>
+    <clr-button class="btn btn-warning-outline">Download</clr-button>
+    <clr-button class="btn btn-danger-outline">Delete</clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>Disabled</clr-button>
+</clr-button-group>
 <h6>Icon + text</h6>
-<button class="btn btn-outline btn-icon btn-sm">
-    <clr-icon shape="cog"></clr-icon>
-    Primary
-</button>
-<button class="btn btn-success-outline btn-icon btn-sm">
-    <clr-icon shape="check"></clr-icon>
-    Success
-</button>
-<button class="btn btn-warning-outline btn-icon btn-sm">
-    <clr-icon shape="warning-standard"></clr-icon>
-    Warning
-</button>
-<button class="btn btn-danger-outline btn-icon btn-sm">
-    <clr-icon shape="error-standard"></clr-icon>
-    Danger
-</button>
-<button class="btn btn-danger-outline btn-icon btn-sm" disabled>
-    <clr-icon shape="home"></clr-icon>
-    Disabled
-</button>
+<clr-button-group class="  btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-sm">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-sm">
+    <clr-button class="btn ">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn btn-success-outline">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn btn-warning-outline">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn btn-danger-outline">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Disabled
+    </clr-button>
+</clr-button-group>
 
 <h6>Text + icon (use only with arrows or angle)</h6>
-<button class="btn btn-outline btn-icon btn-sm">
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-outline btn-icon btn-sm" disabled>
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-outline btn-icon btn-sm">
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
-<button class="btn btn-outline btn-icon btn-sm" disabled>
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
+
+<clr-button-group class="  btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-sm">
+    <clr-button class="btn" disabled>
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-sm">
+    <clr-button class="btn ">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-success-outline">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-warning-outline">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger-outline">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>
+        Disabled
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
 
 <h6>Icon only</h6>
-<button class="btn btn-outline btn-icon btn-sm">
-    <clr-icon shape="cog"></clr-icon>
-</button>
-<button class="btn btn-success-outline btn-icon btn-sm">
-    <clr-icon shape="check"></clr-icon>
-</button>
-<button class="btn btn-warning-outline btn-icon btn-sm">
-    <clr-icon shape="warning-standard"></clr-icon>
-</button>
-<button class="btn btn-danger-outline btn-icon btn-sm">
-    <clr-icon shape="error-standard"></clr-icon>
-</button>
-<button class="btn btn-danger-outline btn-icon btn-sm" disabled>
-    <clr-icon shape="home"></clr-icon>
-</button>
+<clr-button-group class="  btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-success-outline btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-warning-outline btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-danger-outline btn-icon btn-sm">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-icon btn-sm">
+    <clr-button class="btn ">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-success-outline">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-warning-outline">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger-outline">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger-outline" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
 
 <h3>Flat</h3>
 <br />
 <h5>Normal size</h5>
 <h6>Regular</h6>
-<button class="btn btn-link btn-primary">Primary</button>
-<button class="btn btn-link btn-success">Success</button>
-<button class="btn btn-link btn-warning">Warning</button>
-<button class="btn btn-link btn-danger">Danger</button>
-<button class="btn btn-link btn-danger" disabled>Disabled</button>
+<clr-button-group class="btn-link btn-primary">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger">
+    <clr-button class="btn" disabled>Add</clr-button>
+    <clr-button class="btn" disabled>Edit</clr-button>
+    <clr-button class="btn" disabled>Download</clr-button>
+    <clr-button class="btn" disabled>Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link">
+    <clr-button class="btn btn-primary">Add</clr-button>
+    <clr-button class="btn btn-success">Edit</clr-button>
+    <clr-button class="btn btn-warning">Download</clr-button>
+    <clr-button class="btn btn-danger">Delete</clr-button>
+    <clr-button class="btn btn-danger" disabled>Disabled</clr-button>
+</clr-button-group>
 <h6>Icon + text</h6>
-<button class="btn btn-link btn-primary btn-icon">
-    <clr-icon shape="cog"></clr-icon>
-    Primary
-</button>
-<button class="btn btn-link btn-success btn-icon">
-    <clr-icon shape="check"></clr-icon>
-    Success
-</button>
-<button class="btn btn-link btn-warning btn-icon">
-    <clr-icon shape="warning-standard"></clr-icon>
-    Warning
-</button>
-<button class="btn btn-link btn-danger btn-icon">
-    <clr-icon shape="error-standard"></clr-icon>
-    Danger
-</button>
-<button class="btn btn-link btn-danger btn-icon" disabled>
-    <clr-icon shape="home"></clr-icon>
-    Disabled
-</button>
+<clr-button-group class="btn-link btn-primary">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link">
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Disabled
+    </clr-button>
+</clr-button-group>
 
 <h6>Text + icon (use only with arrows or angle)</h6>
-<button class="btn btn-link btn-primary btn-icon">
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-link btn-primary btn-icon" disabled>
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-link btn-primary btn-icon">
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
-<button class="btn btn-link btn-primary btn-icon" disabled>
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
+
+<clr-button-group class="btn-link btn-primary">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger">
+    <clr-button class="btn" disabled>
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link">
+    <clr-button class="btn btn-primary">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-success">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        Disabled
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
 
 <h6>Icon only</h6>
-<button class="btn btn-link btn-primary btn-icon">
-    <clr-icon shape="cog"></clr-icon>
-</button>
-<button class="btn btn-link btn-success btn-icon">
-    <clr-icon shape="check"></clr-icon>
-</button>
-<button class="btn btn-link btn-warning btn-icon">
-    <clr-icon shape="warning-standard"></clr-icon>
-</button>
-<button class="btn btn-link btn-danger btn-icon">
-    <clr-icon shape="error-standard"></clr-icon>
-</button>
-<button class="btn btn-link btn-danger btn-icon" disabled>
-    <clr-icon shape="home"></clr-icon>
-</button>
+<clr-button-group class="btn-link btn-primary btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
 
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-icon">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-icon">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-icon">
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
 <br />
 <br />
 <h5>Small</h5>
 <h6>Regular</h6>
-<button class="btn btn-link btn-primary btn-sm">Primary</button>
-<button class="btn btn-link btn-success btn-sm">Success</button>
-<button class="btn btn-link btn-warning btn-sm">Warning</button>
-<button class="btn btn-link btn-danger btn-sm">Danger</button>
-<button class="btn btn-link btn-danger btn-sm" disabled>Disabled</button>
+<clr-button-group class="btn-link btn-primary btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-sm">
+    <clr-button class="btn">Add</clr-button>
+    <clr-button class="btn">Edit</clr-button>
+    <clr-button class="btn">Download</clr-button>
+    <clr-button class="btn">Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-sm">
+    <clr-button class="btn" disabled>Add</clr-button>
+    <clr-button class="btn" disabled>Edit</clr-button>
+    <clr-button class="btn" disabled>Download</clr-button>
+    <clr-button class="btn" disabled>Delete</clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-sm">
+    <clr-button class="btn btn-primary">Add</clr-button>
+    <clr-button class="btn btn-success">Edit</clr-button>
+    <clr-button class="btn btn-warning">Download</clr-button>
+    <clr-button class="btn btn-danger">Delete</clr-button>
+    <clr-button class="btn btn-danger" disabled>Disabled</clr-button>
+</clr-button-group>
 <h6>Icon + text</h6>
-<button class="btn btn-link btn-primary btn-icon btn-sm">
-    <clr-icon shape="cog"></clr-icon>
-    Primary
-</button>
-<button class="btn btn-link btn-success btn-icon btn-sm">
-    <clr-icon shape="check"></clr-icon>
-    Success
-</button>
-<button class="btn btn-link btn-warning btn-icon btn-sm">
-    <clr-icon shape="warning-standard"></clr-icon>
-    Warning
-</button>
-<button class="btn btn-link btn-danger btn-icon btn-sm">
-    <clr-icon shape="error-standard"></clr-icon>
-    Danger
-</button>
-<button class="btn btn-link btn-danger btn-icon btn-sm" disabled>
-    <clr-icon shape="home"></clr-icon>
-    Disabled
-</button>
+<clr-button-group class="btn-link btn-primary btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-sm">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-sm">
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+        Add
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+        Edit
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+        Download
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+        Delete
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+        Disabled
+    </clr-button>
+</clr-button-group>
 
 <h6>Text + icon (use only with arrows or angle)</h6>
-<button class="btn btn-link btn-primary btn-icon btn-sm">
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-link btn-primary btn-icon btn-sm" disabled>
-    Next
-    <clr-icon shape="arrow" dir="right"></clr-icon>
-</button>
-<button class="btn btn-link btn-primary btn-icon btn-sm">
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
-<button class="btn btn-link btn-primary btn-icon btn-sm" disabled>
-    Next
-    <clr-icon shape="angle" dir="right"></clr-icon>
-</button>
+
+<clr-button-group class="btn-link btn-primary btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-sm">
+    <clr-button class="btn">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-sm">
+    <clr-button class="btn" disabled>
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn" disabled>
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-sm">
+    <clr-button class="btn btn-primary">
+        Add
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-success">
+        Edit
+        <clr-icon shape="arrow" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        Download
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        Delete
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        Disabled
+        <clr-icon shape="angle" dir="right"></clr-icon>
+    </clr-button>
+</clr-button-group>
 
 <h6>Icon only</h6>
-<button class="btn btn-link btn-primary btn-icon btn-sm">
-    <clr-icon shape="cog"></clr-icon>
-</button>
-<button class="btn btn-link btn-success btn-icon btn-sm">
-    <clr-icon shape="check"></clr-icon>
-</button>
-<button class="btn btn-link btn-warning btn-icon btn-sm">
-    <clr-icon shape="warning-standard"></clr-icon>
-</button>
-<button class="btn btn-link btn-danger btn-icon btn-sm">
-    <clr-icon shape="error-standard"></clr-icon>
-</button>
-<button class="btn btn-link btn-danger btn-icon btn-sm" disabled>
-    <clr-icon shape="home"></clr-icon>
-</button>
+<clr-button-group class="btn-link btn-primary btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-success btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-warning btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-icon btn-sm">
+    <clr-button class="btn">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-danger btn-icon btn-sm">
+    <clr-button class="btn" disabled>
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />
+<clr-button-group class="btn-link btn-icon btn-sm">
+    <clr-button class="btn btn-primary">
+        <clr-icon shape="cog"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-success">
+        <clr-icon shape="check"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-warning">
+        <clr-icon shape="warning-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger">
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+    <clr-button class="btn btn-danger" disabled>
+        <clr-icon shape="error-standard"></clr-icon>
+
+    </clr-button>
+</clr-button-group>
+<br />
+<br />

@@ -9,7 +9,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ButtonComponent implements OnInit {
   buttonOptionsForm = new FormGroup({
-    buttonGroupType: new FormControl('Button'),
     buttonType: new FormControl('Solid'),
     isSmall: new FormControl(false),
     isLeftIconEnabled: new FormControl(false),
