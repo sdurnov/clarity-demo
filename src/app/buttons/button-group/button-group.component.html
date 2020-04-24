@@ -17,18 +17,22 @@
             <label>Radio</label>
         </clr-radio-wrapper>
     </clr-radio-container>
-    <clr-radio-container clrInline>
+    <clr-radio-container clrInline
+        [ngClass]="{'clr-form-control-disabled': buttonGroupOptionsForm.value.buttonGroupType !== 'Button'}">
         <label>Appearance</label>
         <clr-radio-wrapper>
-            <input type="radio" clrRadio name="buttonType" required value="Solid" formControlName="buttonType" />
+            <input type="radio" clrRadio name="buttonType" required value="Solid" formControlName="buttonType"
+                [attr.disabled]="(buttonGroupOptionsForm.value.buttonGroupType !== 'Button') ? 'disabled' : null" />
             <label>Solid</label>
         </clr-radio-wrapper>
         <clr-radio-wrapper>
-            <input type="radio" clrRadio name="buttonType" required value="Outline" formControlName="buttonType" />
+            <input type="radio" clrRadio name="buttonType" required value="Outline" formControlName="buttonType"
+                [attr.disabled]="(buttonGroupOptionsForm.value.buttonGroupType !== 'Button') ? 'disabled' : null" />
             <label>Outline</label>
         </clr-radio-wrapper>
         <clr-radio-wrapper>
-            <input type="radio" clrRadio name="buttonType" required value="Flat" formControlName="buttonType" />
+            <input type="radio" clrRadio name="buttonType" required value="Flat" formControlName="buttonType"
+                [attr.disabled]="(buttonGroupOptionsForm.value.buttonGroupType !== 'Button') ? 'disabled' : null" />
             <label>Flat</label>
         </clr-radio-wrapper>
     </clr-radio-container>
@@ -69,10 +73,12 @@
             <label>Show text</label>
         </clr-toggle-wrapper>
     </clr-toggle-container>
-    <clr-toggle-container clrInline>
+    <clr-toggle-container clrInline
+        [ngClass]="{'clr-form-control-disabled': buttonGroupOptionsForm.value.buttonGroupType !== 'Button'}">
         <label>Overflow</label>
         <clr-toggle-wrapper>
-            <input type="checkbox" clrToggle name="isOverflowVisible" formControlName="isOverflowVisible" />
+            <input type="checkbox" clrToggle name="isOverflowVisible" formControlName="isOverflowVisible"
+                [attr.disabled]="(buttonGroupOptionsForm.value.buttonGroupType !== 'Button') ? 'disabled' : null" />
             <label>Overflow visible</label>
         </clr-toggle-wrapper>
     </clr-toggle-container>
@@ -120,17 +126,101 @@
     <ng-container *ngIf="buttonGroupOptionsForm.value.isOverflowVisible">
         <clr-button [clrInMenu]="true" class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
             <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
-            {{buttonGroupOptionsForm.value.isTextEnabled ? 'in dropdown' : null}}
+            <span class="clr-icon-title">in dropdown 1</span>
             <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
         </clr-button>
         <clr-button [clrInMenu]="true" class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
             <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
-            {{buttonGroupOptionsForm.value.isTextEnabled ? 'in dropdown' : null}}
+            <span class="clr-icon-title">in dropdown 2</span>
             <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
         </clr-button>
     </ng-container>
 
 </clr-button-group>
+
+<div class="btn-group"
+    [ngClass]="{'btn-success-outline': buttonGroupOptionsForm.value.color === 'Success', 'btn-warning-outline': buttonGroupOptionsForm.value.color === 'Warning', 'btn-danger-outline': buttonGroupOptionsForm.value.color === 'Danger', 'btn-sm': buttonGroupOptionsForm.value.isSmall, 'btn-icon': (buttonGroupOptionsForm.value.isLeftIconEnabled || buttonGroupOptionsForm.value.isRightIconEnabled)}"
+    *ngIf="buttonGroupOptionsForm.value.buttonGroupType === 'Checkbox'"
+    [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+    <div class="checkbox btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="checkbox" id="btn-demo-check-1"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-check-1" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'apples' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+    <div class="checkbox btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="checkbox" id="btn-demo-check-2"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-check-2" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="check" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'oranges' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+    <div class="checkbox btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="checkbox" id="btn-demo-check-3"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-check-3" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="warning-standard" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'kiwis' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+    <div class="checkbox btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="checkbox" id="btn-demo-check-4"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-check-4" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="error-standard" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'pears' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+</div>
+
+<div class="btn-group"
+    [ngClass]="{'btn-success-outline': buttonGroupOptionsForm.value.color === 'Success', 'btn-warning-outline': buttonGroupOptionsForm.value.color === 'Warning', 'btn-danger-outline': buttonGroupOptionsForm.value.color === 'Danger', 'btn-sm': buttonGroupOptionsForm.value.isSmall, 'btn-icon': (buttonGroupOptionsForm.value.isLeftIconEnabled || buttonGroupOptionsForm.value.isRightIconEnabled)}"
+    *ngIf="buttonGroupOptionsForm.value.buttonGroupType === 'Radio'"
+    [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+    <div class="radio btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="radio" id="btn-demo-radio-1" name="btn-group-demo-radios"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-radio-1" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'apples' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+    <div class="radio btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="radio" id="btn-demo-radio-2" name="btn-group-demo-radios"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-radio-2" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="check" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'oranges' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+    <div class="radio btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="radio" id="btn-demo-radio-3" name="btn-group-demo-radios"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-radio-3" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="warning-standard" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'kiwis' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+    <div class="radio btn" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <input type="radio" id="btn-demo-radio-4" name="btn-group-demo-radios"
+            [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+        <label for="btn-demo-radio-4" [attr.disabled]="buttonGroupOptionsForm.value.isDisabled ? 'disabled' : null">
+            <clr-icon shape="error-standard" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
+            {{buttonGroupOptionsForm.value.isTextEnabled ? 'pears' : null}}
+            <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
+        </label>
+    </div>
+</div>
 <hr>
 
 

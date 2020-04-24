@@ -89,7 +89,7 @@ form.no-top-margin .clr-form-control {
   }
 }
 
-.btn-group {
+.btn-group:not(.btn-link) {
   &.btn-success .dropdown-toggle {
     border-color: var(--clr-btn-success-border-color);
     background-color: var(--clr-btn-success-bg-color);
@@ -115,5 +115,60 @@ form.no-top-margin .clr-form-control {
     &:hover {
       background-color: var(--clr-btn-danger-hover-bg-color);
     }
+  }
+}
+
+.btn-group {
+  &.btn-success-outline {
+    .checkbox.btn input[type="checkbox"]:checked + label,
+    .checkbox-inline.btn input[type="checkbox"]:checked + label,
+    .radio.btn input[type="radio"]:checked + label,
+    .radio-inline.btn input[type="radio"]:checked + label {
+      background-color: var(--clr-btn-success-bg-color);
+    }
+  }
+
+  &.btn-warning-outline,
+  &.btn-danger-outline {
+    .checkbox.btn input[type="checkbox"]:checked + label,
+    .checkbox-inline.btn input[type="checkbox"]:checked + label,
+    .radio.btn input[type="radio"]:checked + label,
+    .radio-inline.btn input[type="radio"]:checked + label {
+      background-color: var(--clr-btn-danger-bg-color);
+    }
+  }
+}
+
+.btn-group[disabled] {
+  .checkbox.btn,
+  .radio.btn,
+  .checkbox.btn input[type="checkbox"] + label,
+  .checkbox-inline.btn input[type="checkbox"] + label,
+  .radio.btn input[type="radio"] + label,
+  .radio-inline.btn input[type="radio"] + label {
+    color: var(--clr-btn-default-disabled-color) !important;
+    background-color: var(--clr-btn-default-disabled-bg-color) !important;
+    border-color: var(--clr-btn-default-disabled-border-color) !important;
+    cursor: not-allowed !important;
+    box-shadow: none;
+    user-select: none;
+    opacity: 0.4;
+  }
+
+  .checkbox.btn input[type="checkbox"]:checked + label,
+  .checkbox-inline.btn input[type="checkbox"]:checked + label,
+  .radio.btn input[type="radio"]:checked + label,
+  .radio-inline.btn input[type="radio"]:checked + label {
+    color: var(--clr-btn-primary-disabled-color) !important;
+    cursor: not-allowed;
+    background-color: var(--clr-btn-primary-disabled-bg-color) !important;
+    border-color: var(--clr-btn-primary-disabled-border-color) !important;
+    box-shadow: none;
+    user-select: none;
+    opacity: 0.4;
+  }
+
+  label {
+    opacity: 1 !important;
   }
 }
