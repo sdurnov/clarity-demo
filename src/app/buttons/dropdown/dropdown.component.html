@@ -1,1 +1,189 @@
-<p>dropdown works!</p>
+<form clrForm clrLayout="horizontal" [formGroup]="dropdownButtonOptionsForm">
+    <clr-radio-container clrInline>
+        <label>Appearance</label>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonType" required value="Solid" formControlName="buttonType" />
+            <label>Solid</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonType" required value="Outline" formControlName="buttonType" />
+            <label>Outline</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+            <input type="radio" clrRadio name="buttonType" required value="Flat" formControlName="buttonType" />
+            <label>Flat</label>
+        </clr-radio-wrapper>
+    </clr-radio-container>
+    <clr-toggle-container clrInline>
+        <label>Icon</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isLeftIconEnabled" formControlName="isLeftIconEnabled" />
+            <label>Left icon</label>
+        </clr-toggle-wrapper>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isRightIconEnabled" formControlName="isRightIconEnabled" />
+            <label>Right icon</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>Text</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isTextEnabled" formControlName="isTextEnabled" />
+            <label>Show text</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>Size</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isSmall" formControlName="isSmall" />
+            <label>Small</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+</form>
+
+<br />
+<br />
+
+<clr-dropdown>
+    <button clrDropdownTrigger class="btn"
+        [ngClass]="{'btn-primary': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        <clr-icon shape="cog" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{dropdownButtonOptionsForm.value.isTextEnabled ? 'primary' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
+        <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+        <div aria-label="Dropdown header Disabled Action" [clrDisabled]="true" clrDropdownItem>Disabled Action</div>
+        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+        <clr-dropdown>
+            <button clrDropdownTrigger>Link 1</button>
+            <clr-dropdown-menu>
+                <button clrDropdownItem>Foo</button>
+                <clr-dropdown>
+                    <button clrDropdownTrigger>Bar</button>
+                    <clr-dropdown-menu clrPosition="left-top">
+                        <button clrDropdownItem>Baz</button>
+                    </clr-dropdown-menu>
+                </clr-dropdown>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+        <div clrDropdownItem>Link 2</div>
+    </clr-dropdown-menu>
+</clr-dropdown>
+<clr-dropdown>
+    <button clrDropdownTrigger class="btn"
+        [ngClass]="{'btn-success': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        <clr-icon shape="check" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{dropdownButtonOptionsForm.value.isTextEnabled ? 'success' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
+        <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+        <div aria-label="Dropdown header Disabled Action" [clrDisabled]="true" clrDropdownItem>Disabled Action</div>
+        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+        <clr-dropdown>
+            <button clrDropdownTrigger>Link 1</button>
+            <clr-dropdown-menu>
+                <button clrDropdownItem>Foo</button>
+                <clr-dropdown>
+                    <button clrDropdownTrigger>Bar</button>
+                    <clr-dropdown-menu clrPosition="left-top">
+                        <button clrDropdownItem>Baz</button>
+                    </clr-dropdown-menu>
+                </clr-dropdown>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+        <div clrDropdownItem>Link 2</div>
+    </clr-dropdown-menu>
+</clr-dropdown>
+<clr-dropdown>
+    <button clrDropdownTrigger class="btn"
+        [ngClass]="{'btn-warning': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        <clr-icon shape="warning-standard" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{dropdownButtonOptionsForm.value.isTextEnabled ? 'warning' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
+        <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+        <div aria-label="Dropdown header Disabled Action" [clrDisabled]="true" clrDropdownItem>Disabled Action</div>
+        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+        <clr-dropdown>
+            <button clrDropdownTrigger>Link 1</button>
+            <clr-dropdown-menu>
+                <button clrDropdownItem>Foo</button>
+                <clr-dropdown>
+                    <button clrDropdownTrigger>Bar</button>
+                    <clr-dropdown-menu clrPosition="left-top">
+                        <button clrDropdownItem>Baz</button>
+                    </clr-dropdown-menu>
+                </clr-dropdown>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+        <div clrDropdownItem>Link 2</div>
+    </clr-dropdown-menu>
+</clr-dropdown>
+<clr-dropdown>
+    <button clrDropdownTrigger class="btn"
+        [ngClass]="{'btn-danger': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        <clr-icon shape="error-standard" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{dropdownButtonOptionsForm.value.isTextEnabled ? 'danger' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
+        <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+        <div aria-label="Dropdown header Disabled Action" [clrDisabled]="true" clrDropdownItem>Disabled Action</div>
+        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+        <clr-dropdown>
+            <button clrDropdownTrigger>Link 1</button>
+            <clr-dropdown-menu>
+                <button clrDropdownItem>Foo</button>
+                <clr-dropdown>
+                    <button clrDropdownTrigger>Bar</button>
+                    <clr-dropdown-menu clrPosition="left-top">
+                        <button clrDropdownItem>Baz</button>
+                    </clr-dropdown-menu>
+                </clr-dropdown>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+        <div clrDropdownItem>Link 2</div>
+    </clr-dropdown-menu>
+</clr-dropdown>
+<clr-dropdown>
+    <button clrDropdownTrigger disabled class="btn"
+        [ngClass]="{'btn-danger': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        <clr-icon shape="error-standard" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
+        {{dropdownButtonOptionsForm.value.isTextEnabled ? 'disabled' : null}}
+        <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+        <label class="dropdown-header" aria-hidden="true">Dropdown header</label>
+        <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+        <div aria-label="Dropdown header Disabled Action" [clrDisabled]="true" clrDropdownItem>Disabled Action</div>
+        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+        <clr-dropdown>
+            <button clrDropdownTrigger>Link 1</button>
+            <clr-dropdown-menu>
+                <button clrDropdownItem>Foo</button>
+                <clr-dropdown>
+                    <button clrDropdownTrigger>Bar</button>
+                    <clr-dropdown-menu clrPosition="left-top">
+                        <button clrDropdownItem>Baz</button>
+                    </clr-dropdown-menu>
+                </clr-dropdown>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+        <div clrDropdownItem>Link 2</div>
+    </clr-dropdown-menu>
+</clr-dropdown>
+
+
+<hr>
