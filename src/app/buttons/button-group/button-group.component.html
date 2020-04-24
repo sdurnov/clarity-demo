@@ -126,12 +126,16 @@
     <ng-container *ngIf="buttonGroupOptionsForm.value.isOverflowVisible">
         <clr-button [clrInMenu]="true" class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
             <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
-            <span class="clr-icon-title">in dropdown 1</span>
+            <span class="clr-icon-title">
+                in dropdown 1
+            </span>
             <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
         </clr-button>
         <clr-button [clrInMenu]="true" class="btn" [disabled]="buttonGroupOptionsForm.value.isDisabled">
             <clr-icon shape="cog" *ngIf="buttonGroupOptionsForm.value.isLeftIconEnabled"></clr-icon>
-            <span class="clr-icon-title">in dropdown 2</span>
+            <span class="clr-icon-title">
+                in dropdown 2
+            </span>
             <clr-icon shape="arrow" dir="right" *ngIf="buttonGroupOptionsForm.value.isRightIconEnabled"></clr-icon>
         </clr-button>
     </ng-container>
