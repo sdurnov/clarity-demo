@@ -1,3 +1,7 @@
 clr-dropdown {
     margin-right: var(--clr-btn-horizontal-margin);
+
+    &.btn-block {
+        margin-bottom: 0.5rem;
+    }
 }

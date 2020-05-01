@@ -14,6 +14,7 @@ export class DropdownComponent implements OnInit {
     isLeftIconEnabled: new FormControl(false),
     isTextEnabled: new FormControl(true),
     isRightIconEnabled: new FormControl(false),
+    isBlock: new FormControl(false)
   });
 
   constructor() { }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ClrLoadingState } from '@clr/angular';
 
 @Component({
   selector: 'app-button',
@@ -14,7 +15,13 @@ export class ButtonComponent implements OnInit {
     isLeftIconEnabled: new FormControl(false),
     isTextEnabled: new FormControl(true),
     isRightIconEnabled: new FormControl(false),
+    isBlock: new FormControl(false),
+    isLoading: new FormControl(false)
   });
+
+  loadingState: ClrLoadingState = ClrLoadingState.LOADING;
+
+  loadingStateOff: ClrLoadingState = ClrLoadingState.DEFAULT;
 
   constructor() { }
 

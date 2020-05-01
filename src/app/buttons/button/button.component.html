@@ -39,37 +39,51 @@
             <label>Small</label>
         </clr-toggle-wrapper>
     </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>Layout</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isBlock" formControlName="isBlock" />
+            <label>Block</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>State</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isLoading" formControlName="isLoading" />
+            <label>Loading</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
 </form>
 
 <br />
 <br />
 
-<button class="btn"
-    [ngClass]="{'btn-primary': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+<button class="btn" [clrLoading]="buttonOptionsForm.value.isLoading ? loadingState : loadingStateOff"
+    [ngClass]="{'btn-block': buttonOptionsForm.value.isBlock, 'btn-primary': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
     <clr-icon shape="cog" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
     {{buttonOptionsForm.value.isTextEnabled ? 'primary' : null}}
     <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
 </button>
-<button class="btn"
-    [ngClass]="{'btn-success': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+<button class="btn" [clrLoading]="buttonOptionsForm.value.isLoading ? loadingState : loadingStateOff"
+    [ngClass]="{'btn-block': buttonOptionsForm.value.isBlock, 'btn-success': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
     <clr-icon shape="check" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
     {{buttonOptionsForm.value.isTextEnabled ? 'success' : null}}
     <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
 </button>
-<button class="btn"
-    [ngClass]="{'btn-warning': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+<button class="btn" [clrLoading]="buttonOptionsForm.value.isLoading ? loadingState : loadingStateOff"
+    [ngClass]="{'btn-block': buttonOptionsForm.value.isBlock, 'btn-warning': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
     <clr-icon shape="warning-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
     {{buttonOptionsForm.value.isTextEnabled ? 'warning' : null}}
     <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
 </button>
-<button class="btn"
-    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+<button class="btn" [clrLoading]="buttonOptionsForm.value.isLoading ? loadingState : loadingStateOff"
+    [ngClass]="{'btn-block': buttonOptionsForm.value.isBlock, 'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
     <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
     {{buttonOptionsForm.value.isTextEnabled ? 'danger' : null}}
     <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>
 </button>
 <button disabled class="btn"
-    [ngClass]="{'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
+    [ngClass]="{'btn-block': buttonOptionsForm.value.isBlock, 'btn-danger': buttonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': buttonOptionsForm.value.buttonType === 'Outline', 'btn-link': buttonOptionsForm.value.buttonType === 'Flat', 'btn-sm': buttonOptionsForm.value.isSmall, 'btn-icon': (buttonOptionsForm.value.isLeftIconEnabled || buttonOptionsForm.value.isRightIconEnabled)}">
     <clr-icon shape="error-standard" *ngIf="buttonOptionsForm.value.isLeftIconEnabled"></clr-icon>
     {{buttonOptionsForm.value.isTextEnabled ? 'disabled' : null}}
     <clr-icon shape="arrow" dir="right" *ngIf="buttonOptionsForm.value.isRightIconEnabled"></clr-icon>

@@ -39,14 +39,21 @@
             <label>Small</label>
         </clr-toggle-wrapper>
     </clr-toggle-container>
+    <clr-toggle-container clrInline>
+        <label>Layout</label>
+        <clr-toggle-wrapper>
+            <input type="checkbox" clrToggle name="isBlock" formControlName="isBlock" />
+            <label>Block</label>
+        </clr-toggle-wrapper>
+    </clr-toggle-container>
 </form>
 
 <br />
 <br />
 
-<clr-dropdown>
+<clr-dropdown [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock}">
     <button clrDropdownTrigger class="btn"
-        [ngClass]="{'btn-primary': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock, 'btn-primary': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
         <clr-icon shape="cog" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
         {{dropdownButtonOptionsForm.value.isTextEnabled ? 'primary' : null}}
         <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
@@ -72,9 +79,9 @@
         <div clrDropdownItem>Link 2</div>
     </clr-dropdown-menu>
 </clr-dropdown>
-<clr-dropdown>
+<clr-dropdown [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock}">
     <button clrDropdownTrigger class="btn"
-        [ngClass]="{'btn-success': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock, 'btn-success': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-success-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
         <clr-icon shape="check" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
         {{dropdownButtonOptionsForm.value.isTextEnabled ? 'success' : null}}
         <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
@@ -100,9 +107,9 @@
         <div clrDropdownItem>Link 2</div>
     </clr-dropdown-menu>
 </clr-dropdown>
-<clr-dropdown>
+<clr-dropdown [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock}">
     <button clrDropdownTrigger class="btn"
-        [ngClass]="{'btn-warning': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock, 'btn-warning': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-warning-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
         <clr-icon shape="warning-standard" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
         {{dropdownButtonOptionsForm.value.isTextEnabled ? 'warning' : null}}
         <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
@@ -128,9 +135,9 @@
         <div clrDropdownItem>Link 2</div>
     </clr-dropdown-menu>
 </clr-dropdown>
-<clr-dropdown>
+<clr-dropdown [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock}">
     <button clrDropdownTrigger class="btn"
-        [ngClass]="{'btn-danger': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock, 'btn-danger': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
         <clr-icon shape="error-standard" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
         {{dropdownButtonOptionsForm.value.isTextEnabled ? 'danger' : null}}
         <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
@@ -156,9 +163,9 @@
         <div clrDropdownItem>Link 2</div>
     </clr-dropdown-menu>
 </clr-dropdown>
-<clr-dropdown>
+<clr-dropdown [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock}">
     <button clrDropdownTrigger disabled class="btn"
-        [ngClass]="{'btn-danger': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
+        [ngClass]="{'btn-block': dropdownButtonOptionsForm.value.isBlock, 'btn-danger': dropdownButtonOptionsForm.value.buttonType !== 'Outline', 'btn-danger-outline': dropdownButtonOptionsForm.value.buttonType === 'Outline', 'btn-link': dropdownButtonOptionsForm.value.buttonType === 'Flat', 'btn-sm': dropdownButtonOptionsForm.value.isSmall, 'btn-icon': (dropdownButtonOptionsForm.value.isLeftIconEnabled || dropdownButtonOptionsForm.value.isRightIconEnabled)}">
         <clr-icon shape="error-standard" *ngIf="dropdownButtonOptionsForm.value.isLeftIconEnabled"></clr-icon>
         {{dropdownButtonOptionsForm.value.isTextEnabled ? 'disabled' : null}}
         <clr-icon shape="arrow" dir="right" *ngIf="dropdownButtonOptionsForm.value.isRightIconEnabled"></clr-icon>
